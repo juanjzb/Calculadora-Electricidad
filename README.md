@@ -1,2 +1,1 @@
 # Calculadora-Electricidad
-Est
