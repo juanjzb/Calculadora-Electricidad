@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="results.css">
+<link rel="stylesheet" href="table.css">
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet"/> -->
+</head>
+<body>
+<h1>Calculadora Electricidad</h1>
+<p>Resuelve la Ley de Ohm, con las magnitudes V, I ,R y P</p>
+<form autocomplete="off">
+  <div class="autocomplete" style="width:300px;">
+    <input id="inputMagnitud" type="text" name="inputMagnitudes" placeholder="Magnitudes">
+    <input id="inputValue" type="number" placeholder="Valor">
+    <input type="button" value="Insertar" onClick="insert()">
+    <input type="button" value="Calcular" onclick="calc()">
+    <div class="form-group">
+    </div>
+  </div>
+</form>
+<div class="container">
+  <div class="row">
+    <table class="styled-table" id="tabla">
+        <thead class="thead-dark">
+            <tr>
+                <th>Magnitud</th>
+                <th>Valores</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <!-- and so on... -->
+        </tbody>
+    </table>
+  </div>
+</div>
+<!-- APARECE CUANDO DAMOS AL BOTON DE CALCULAR
+<ul>
+  <li><a href="default.asp">Home</a></li>
+  <li><a href="news.asp">News</a></li>
+  <li><a href="contact.asp">Contact</a></li>
+  <li><a href="about.asp">About</a></li>
+</ul>
+-->
+<!--
+  - botn borrado se agrega en el agregarfila
+  - Dicho boton, borra del diccionario el valor de la magnitud
+  - calc usa los valores de la tabla
+  - mostrar resultados menú con sangría
+  - aproximar (round_up)
+  - preguntar por decimales
+  - format_number
+  - menu input
+  - resultados a un conversor de magnitudes aparte
+  - mensaje faltan datos
+  - https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+
+<p id="finalVol">Voltaje: 0V</p>
+<p id="finalInt">Intensidad: 0A</p>
+<p id="finalRes">Resistencia: 0Ω</p>
+<p id="finalPot">Potencia: 0W</p>
+-->
+</body>
+<script type="text/javascript" src="autocomplete.js"></script>
+<script type="text/javascript" src="functions.js"></script>
+<script type="text/javascript" src="table.js"></script>
+</html>
