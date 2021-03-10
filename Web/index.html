@@ -19,12 +19,12 @@
   <div class="">
     <select name="escala" id="escale">
       <option value="kilo">Kilo</option>
-      <option value="estandar">Estandar</option>
+      <option selected="selected" value="unidad">Unidad</option>
       <option value="mili">Mili</option>
       <option value="micro">Micro</option>
 </select>
   </div>
-    <div class="">
+    <div class="button">
       <input type="button" value="Insertar" onClick="insert()">
       <input type="button" value="Calcular" onclick="calc()">
     </div>
@@ -48,30 +48,40 @@
     </table>
   </div>
 </div>
-<!-- APARECE CUANDO DAMOS AL BOTON DE CALCULAR
-<ul>
-  <li><a href="default.asp">Home</a></li>
-  <li><a href="news.asp">News</a></li>
-  <li><a href="contact.asp">Contact</a></li>
-  <li><a href="about.asp">About</a></li>
+
+<ul id="menu">
+   <li><input type="checkbox" name="list" id="nivel1-1"><label for="nivel1-1">Corriente Alterna</label>
+      <ul class="interior">
+         <li><input type="checkbox" name="list" id="nivel2-1"><label for="nivel2-1">Voltaje</label>
+           <ul class="interior">
+              <li class="result"><label id="resultadoVoltaje">Resultado Voltaje</label></li>
+           </ul>
+         </li>
+         <li><input type="checkbox" name="list" id="nivel2-2"><label for="nivel2-2">Intensidad</label>
+           <ul class="interior">
+              <li class="result"><label id="resultadoIntensidad">Resultado Intensidad</label></li>
+           </ul>
+         </li>
+         <li><input type="checkbox" name="list" id="nivel2-3"><label for="nivel2-3">Resistencia</label>
+           <ul class="interior">
+              <li class="result"><label id="resultadoResistencia">Resultado Resistencia</label></li>
+           </ul>
+         </li>
+         <li><input type="checkbox" name="list" id="nivel2-4"><label for="nivel2-4">Potencia</label>
+           <ul class="interior">
+              <li class="result"><label id="resultadoPotencia">Resultado Potencia</label></li>
+           </ul>
+         </li>
+      </ul>
+   </li>
+   <li><input type="checkbox" name="list" id="nivel1-2"><label for="nivel1-2">Corriente Contínua</label></li>
 </ul>
--->
 <!--
-  - Cambiar valor de la magnitud si está ya insertada y damos al insert de nuevo con un nuevo valor
-  - calc usa los valores de la tabla
-  - mostrar resultados menú con sangría
+  - mostrar resultados al lado de la categoria en la sangria de resultados
   - aproximar (round_up)
   - preguntar por decimales
   - format_number
-  - menu input
   - resultados a un conversor de magnitudes aparte
-  - mensaje faltan datos
-  - https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
-
-<p id="finalVol">Voltaje: 0V</p>
-<p id="finalInt">Intensidad: 0A</p>
-<p id="finalRes">Resistencia: 0Ω</p>
-<p id="finalPot">Potencia: 0W</p>
 -->
 </body>
 <script type="text/javascript" src="autocomplete.js"></script>

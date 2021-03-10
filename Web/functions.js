@@ -11,87 +11,101 @@ function check() {
 }
 
 function insert() {
-  // clave = document.getElementById("inputMagnitud").value;
-  // valor = document.getElementById("inputValue").value;
-  // if (clave == "Voltaje") {
-  // magnitudes.vol[0] = valor;
-  // }
-  // console.log(magnitudes.vol[0])
   agregarFila();
 }
 
 function calc() {
-
-
-  //var voltaje = parseFloat(document.getElementById('Voltaje').innerHTML);
-  var intensidad = parseFloat(document.getElementById('Intensidad').innerHTML);
-  var resistencia = parseFloat(document.getElementById('Resistencia').innerHTML);
-  var potencia = parseFloat(document.getElementById('Potencia').innerHTML);
-
-  if (!isNaN(parseFloat(document.getElementById('Voltaje').innerHTML)) || parseFloat(document.getElementById('Voltaje').innerHTML!="")) {
-     voltaje = parseFloat(document.getElementById('Voltaje').innerHTML;
-     console.log(voltaje);
-    //magnitudes.vol[0] = voltaje; //esto ya no lo ocupas, por la logica que lleva creo
+  if (document.getElementById('tabla').innerHTML.split("</tr>").length - 2 < 2){
+    alert('Datos insuficientes');
+    return
   }
-  else{
-     voltaje = 0;
+  results = 0;
+  voltaje = 0;
+  intensidad = 0;
+  resistencia = 0;
+  potencia = 0;
+  if (document.getElementById("Voltaje")) {
+    if (!isNaN(parseFloat(document.getElementById('Voltaje').innerHTML))) {
+       voltaje = parseFloat(document.getElementById('Voltaje').innerHTML);
+       console.log(voltaje);
+    }
+  }
+  if (document.getElementById("Intensidad")) {
+    if (!isNaN(parseFloat(document.getElementById('Intensidad').innerHTML))) {
+       intensidad = parseFloat(document.getElementById('Intensidad').innerHTML);
+       console.log(intensidad);
+    }
+  }
+
+  if (document.getElementById("Resistencia")) {
+    if (!isNaN(parseFloat(document.getElementById('Resistencia').innerHTML))) {
+       resistencia = parseFloat(document.getElementById('Resistencia').innerHTML);
+       console.log(resistencia);
+    }
+  }
+
+  if (document.getElementById("Potencia")) {
+    if (!isNaN(parseFloat(document.getElementById('Potencia').innerHTML))) {
+       potencia = parseFloat(document.getElementById('Potencia').innerHTML);
+       console.log(potencia);
+    }
   }
 
   calcVol(intensidad, resistencia, potencia);
   calcInt(voltaje, resistencia, potencia);
   calcRes(intensidad, voltaje, potencia);
   calcPot(intensidad, voltaje, resistencia);
+  console.log(results);
 }
 
 function calcInt(voltaje, resistencia, potencia) {
   if (voltaje && resistencia) {
     result = voltaje / resistencia;
-    magnitudes.int[1] = result;
+    document.getElementById("resultadoIntensidad").innerHTML = 'La intensidad es ' + result;
   } else if (potencia && voltaje) {
     result = potencia / voltaje;
-    magnitudes.int[1] = result;
+    document.getElementById("resultadoIntensidad").innerHTML = 'La intensidad es ' + result;
   } else if (potencia && resistencia) {
     result = Math.sqrt(potencia / resistencia);
-    magnitudes.int[1] = result;
+    document.getElementById("resultadoIntensidad").innerHTML = 'La intensidad es ' + result;
   }
 }
 
 function calcVol(intensidad, resistencia, potencia) {
   if (intensidad && resistencia) {
     result = intensidad * resistencia;
-    magnitudes.vol[1] = result;
-    document.write(magnitudes.vol[1]);
+    document.getElementById("resultadoVoltaje").innerHTML = 'El voltaje es ' + result;
   } else if (potencia && intensidad) {
     result = potencia / intensidad;
-    magnitudes.vol[1] = result;
+    document.getElementById("resultadoVoltaje").innerHTML = 'El voltaje es ' + result;
   } else if (potencia && resistencia) {
     result = Math.sqrt(potencia * resistencia);
-    magnitudes.vol[1] = result;
+    document.getElementById("resultadoVoltaje").innerHTML = 'El voltaje es ' + result;
   }
 }
 
 function calcRes(intensidad, voltaje, potencia) {
   if (intensidad && potencia) {
     result = potencia / (intensidad ** 2);
-    magnitudes.res[1] = result;
+    document.getElementById("resultadoResistencia").innerHTML = 'La resistencia es ' + result;
   } else if (voltaje && intensidad) {
     result = voltaje / intensidad;
-    magnitudes.res[1] = result;
+    document.getElementById("resultadoResistencia").innerHTML = 'La resistencia es ' + result;
   } else if (potencia && voltaje) {
     result = (voltaje ** 2) / potencia
-    magnitudes.res[1] = result;
+    document.getElementById("resultadoResistencia").innerHTML = 'La resistencia es ' + result;
   }
 }
 
 function calcPot(intensidad, voltaje, resistencia) {
   if (intensidad && voltaje) {
     result = intensidad * voltaje;
-    magnitudes.pot[1] = result;
+    document.getElementById("resultadoPotencia").innerHTML = 'La potencia es ' + result;
   } else if (resistencia && intensidad) {
     result = resistencia * (intensidad ** 2);
-    magnitudes.pot[1] = result;
+    document.getElementById("resultadoPotencia").innerHTML = 'La potencia es ' + result;
   } else if (voltaje && resistencia) {
     result = (voltaje ** 2) / resistencia;
-    magnitudes.pot[1] = result;
+    document.getElementById("resultadoPotencia").innerHTML = 'La potencia es ' + result;
   }
 }
