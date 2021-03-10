@@ -96,7 +96,7 @@ function autocomplete(inp, arr) {
 }
 
 /*An array containing all the country names in the world:*/
-var magnitudes = ["Voltaje","Intensidad","Resistencia","Potencia"];
+var array_magnitudes = ["Voltaje","Intensidad","Resistencia","Potencia"];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-autocomplete(document.getElementById("inputMagnitud"), magnitudes);
+autocomplete(document.getElementById("inputMagnitud"), array_magnitudes);

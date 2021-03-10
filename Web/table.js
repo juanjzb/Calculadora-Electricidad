@@ -1,14 +1,26 @@
+function title(string){
+  string = string.toLowerCase()
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
 function agregarFila(){
-  magnitud = document.getElementById("inputMagnitud").value;
-
-  //if (magnitudes.includes(magnitud) == false){
-  //  return
-  //}
-
+  magnitud = title(document.getElementById("inputMagnitud").value); // la función title convierte rEsISTencia --> Resistencia
   valor = document.getElementById("inputValue").value;
   selectScale = document.getElementById("escale")
 
-var scale = selectScale.options[selectScale.selectedIndex].value
+  if (array_magnitudes.includes(magnitud) == false){ // Si la magnitud esta dentro del array de magnitudes...
+    alert('Magnitud inexistente')
+    document.getElementById('inputMagnitud').focus()
+    return
+  }
+
+  if (valor == ''){
+    alert('Inserte un valor')
+    document.getElementById('inputValue').focus()
+    return
+  }
+
+  var scale = selectScale.options[selectScale.selectedIndex].value
   switch (scale) {
     case 'unidad':
       console.log('unidad');
