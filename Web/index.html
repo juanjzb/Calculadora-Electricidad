@@ -11,17 +11,17 @@
 <p>Resuelve la Ley de Ohm, con las magnitudes V, I ,R y P</p>
 <form autocomplete="off">
   <div class="autocomplete">
-    <input class="autocompleteItems" id="inputMagnitud" type="text" name="inputMagnitudes" placeholder="Magnitudes">
+    <input class="autocompleteItems" id="inputMagnitud" type="text" name="inputMagnitudes" placeholder="Magnitudes" onpaste="updateSelectEscala()" oninput="updateSelectEscala()">
   </div>
   <div class="">
     <input id="inputValue" type="number" placeholder="Valor">
   </div>
   <div class="">
     <select name="escala" id="escale">
-      <option value="kilo">Kilo</option>
+      <option value="mega">M</option>
+      <option value="kilo">k</option>
       <option selected="selected" value="unidad">Unidad</option>
-      <option value="mili">Mili</option>
-      <option value="micro">Micro</option>
+      <option value="mili">m</option>
 </select>
   </div>
     <div class="button">
@@ -50,31 +50,33 @@
 </div>
 
 <ul id="menu">
-   <li><input type="checkbox" name="list" id="nivel1-1"><label for="nivel1-1">Corriente Alterna</label>
+<!-- puedes hacer algo, ponerlos todos ocultos, y hacer que se cambie el elemento a visibile si calcula -->
+
+   <li><input type="checkbox" class='group1' name="list" id="nivel1-1"><label class='group1' id='group1' for="nivel1-1">Corriente Alterna</label>
       <ul class="interior">
-         <li><input type="checkbox" name="list" id="nivel2-1"><label for="nivel2-1">Voltaje</label>
+         <li><input type="checkbox" name="list" id="nivel2-1"><label id='output1' for="nivel2-1">Voltaje</label>
            <ul class="interior">
-              <li class="result"><label id="resultadoVoltaje">Resultado Voltaje</label></li>
+              <li class="result"><label id="resultadoVoltaje"></label></li>
            </ul>
          </li>
-         <li><input type="checkbox" name="list" id="nivel2-2"><label for="nivel2-2">Intensidad</label>
+         <li><input type="checkbox" name="list" id="nivel2-2"><label id='output2' for="nivel2-2">Intensidad</label>
            <ul class="interior">
-              <li class="result"><label id="resultadoIntensidad">Resultado Intensidad</label></li>
+              <li class="result"><label id="resultadoIntensidad"></label></li>
            </ul>
          </li>
-         <li><input type="checkbox" name="list" id="nivel2-3"><label for="nivel2-3">Resistencia</label>
+         <li><input type="checkbox" name="list" id="nivel2-3"><label id='output3' for="nivel2-3">Resistencia</label>
            <ul class="interior">
-              <li class="result"><label id="resultadoResistencia">Resultado Resistencia</label></li>
+              <li class="result"><label id="resultadoResistencia"></label></li>
            </ul>
          </li>
-         <li><input type="checkbox" name="list" id="nivel2-4"><label for="nivel2-4">Potencia</label>
+         <li><input type="checkbox" name="list" id="nivel2-4"><label id='output4' for="nivel2-4">Potencia</label>
            <ul class="interior">
-              <li class="result"><label id="resultadoPotencia">Resultado Potencia</label></li>
+              <li class="result"><label id="resultadoPotencia"></label></li>
            </ul>
          </li>
       </ul>
    </li>
-   <li><input type="checkbox" name="list" id="nivel1-2"><label for="nivel1-2">Corriente Contínua</label></li>
+   <li><input type="checkbox" class='group2' name="list" id="nivel1-2"><label id='group2' class='group2' for="nivel1-2">Corriente Contínua</label></li>
 </ul>
 <!--
   - mostrar resultados al lado de la categoria en la sangria de resultados

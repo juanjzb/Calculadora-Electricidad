@@ -30,6 +30,8 @@ function autocomplete(inp, arr) {
           b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
               inp.value = this.getElementsByTagName("input")[0].value;
+              updateSelectEscala();
+              // creo que es aqui
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
@@ -100,3 +102,42 @@ var array_magnitudes = ["Voltaje","Intensidad","Resistencia","Potencia"];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("inputMagnitud"), array_magnitudes);
+
+function updateSelectEscala() {
+  var inputMagnitud = document.getElementById("inputMagnitud").value;
+  var selectEscala = document.getElementById('escale');
+if (inputMagnitud == 'Resistencia')
+{
+escala = "Ω";
+} else if (inputMagnitud == 'Voltaje'){
+	escala = "V";
+} else if (inputMagnitud == 'Intensidad'){
+	escala = "A";
+} else if (inputMagnitud == 'Potencia'){
+  escala = "W";
+} else {
+  escala = "";
+}
+for (var i = 0; i < selectEscala.children.length; ++i) {
+    var options = selectEscala.children[i];
+   // if console.log(options.value);
+    switch(options.value) {
+  case 'kilo':
+    options.innerHTML = 'K' + escala;
+    break;
+  case 'unidad':
+    options.innerHTML = escala;
+    break;
+  case 'mili':
+    options.innerHTML = 'm' + escala;
+    break;
+  case 'mega':
+    options.innerHTML = 'M' + escala;
+    break;
+  default:
+
+}
+
+}
+
+}
