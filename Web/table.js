@@ -4,6 +4,7 @@ function title(string){
 }
 
 function agregarFila(){
+	tabla = document.getElementById("table_container").style.display="block";
   magnitud = title(document.getElementById("inputMagnitud").value); // la función title convierte rEsISTencia --> Resistencia
   valor = document.getElementById("inputValue").value;
   selectScale = document.getElementById("escale")
@@ -38,7 +39,7 @@ function agregarFila(){
       break;
   }
   if (document.getElementById(magnitud) == null){
-    document.getElementById("tabla").insertRow(-1).innerHTML = '<td>'+ magnitud + '</td><td id="'+ magnitud +'">'+ valor + '</td><td><button onClick="eliminarFila()" class="boton">X</td>';
+    document.getElementById("tabla").insertRow(1).innerHTML = '<td>'+ magnitud + '</td><td id="'+ magnitud +'">'+ valor + '</td><td><button onClick="eliminarFila()" class="boton">X</td>';
   }
   else{
     document.getElementById(magnitud).innerHTML = valor
@@ -46,6 +47,7 @@ function agregarFila(){
 
   document.getElementById("inputMagnitud").value = ''
   document.getElementById("inputValue").value = ''
+  updateSelectEscala();
   document.getElementById("inputMagnitud").focus();
 
 }

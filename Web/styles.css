@@ -5,7 +5,20 @@
 body {
   font: 16px Arial;
 }
+h1{
+	text-align: center;
+	font-weight:bold; 
 
+}
+p{
+	text-align: center;
+}
+.allCentered{
+	margin: auto;
+  width: 50%;
+ 
+  
+}
 /*the container must be positioned relative:*/
 .autocompleteItems {
   position: relative;
@@ -21,11 +34,26 @@ input {
 
 input[type=text] {
   background-color: #f1f1f1;
-width: 300px;
+width: 100%;
+ height: 40px;
 }
 input[type=number] {
   background-color: #f1f1f1;
-  width: 300px;
+  width: 49%;
+   height: 40px;
+
+}
+
+select {
+  background-color: #f1f1f1;
+ width: 49%;
+   height: 40px;
+
+}
+.inputContainer{
+	width: 100%;
+	
+	text-align: center;
 }
 
 input[type=submit] {

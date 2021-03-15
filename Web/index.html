@@ -1,92 +1,97 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="results.css">
-<link rel="stylesheet" href="table.css">
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet"/> -->
-</head>
-<body>
-<h1>Calculadora Electricidad</h1>
-<p>Resuelve la Ley de Ohm, con las magnitudes V, I ,R y P</p>
-<form autocomplete="off">
-  <div class="autocomplete">
-    <input class="autocompleteItems" id="inputMagnitud" type="text" name="inputMagnitudes" placeholder="Magnitudes" onpaste="updateSelectEscala()" oninput="updateSelectEscala()">
-  </div>
-  <div class="">
-    <input id="inputValue" type="number" placeholder="Valor">
-  </div>
-  <div class="">
-    <select name="escala" id="escale">
-      <option value="mega">M</option>
-      <option value="kilo">k</option>
-      <option selected="selected" value="unidad">Unidad</option>
-      <option value="mili">m</option>
-</select>
-  </div>
-    <div class="button">
-      <input type="button" value="Insertar" onClick="insert()">
-      <input type="button" value="Calcular" onclick="calc()">
-    </div>
-
-
-</form>
-<div class="container">
-  <div class="row">
-    <table class="styled-table" id="tabla">
-        <thead class="thead-dark">
-            <tr>
-                <th>Magnitud</th>
-                <th>Valores</th>
-                <th>Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <!-- and so on... -->
-        </tbody>
-    </table>
-  </div>
-</div>
-
-<ul id="menu">
-<!-- puedes hacer algo, ponerlos todos ocultos, y hacer que se cambie el elemento a visibile si calcula -->
-
-   <li><input type="checkbox" class='group1' name="list" id="nivel1-1"><label class='group1' id='group1' for="nivel1-1">Corriente Alterna</label>
-      <ul class="interior">
-         <li><input type="checkbox" name="list" id="nivel2-1"><label id='output1' for="nivel2-1">Voltaje</label>
-           <ul class="interior">
-              <li class="result"><label id="resultadoVoltaje"></label></li>
-           </ul>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="results.css">
+   <link rel="stylesheet" href="table.css">
+   <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet"/> -->
+   </head>
+   <body>
+   	<div class="allCentered">
+      <h1>Calculadora Electricidad</h1>
+      <p>Resuelve la Ley de Ohm, con las magnitudes V, I ,R y P</p>
+    
+      <form autocomplete="off">
+         <div class="inputContainer">
+            <div class="autocomplete">
+               <input class="autocompleteItems" id="inputMagnitud" type="text" name="inputMagnitudes" placeholder="Magnitudes" oninput="updateSelectEscala()">
+            </div>
+            <div>
+               <input id="inputValue" type="number" placeholder="Valor">
+               <select name="escala" id="escale">
+                  <option value="mega">M</option>
+                  <option value="kilo">k</option>
+                  <option selected="selected" value="unidad">Unidad</option>
+                  <option value="mili">m</option>
+               </select>
+            </div>
+            <div class="button">
+               <input type="button" value="Insertar" onClick="insert()">
+               <input type="button" value="Calcular" onclick="calc()">
+            </div>
+            </div>
+      </form>
+      <div id="table_container" style="display: none">
+     
+      <table class="styled-table" id="tabla">
+      <thead class="thead-dark">
+      <tr>
+      <th>Magnitud</th>
+      <th>Valores</th>
+      <th>Acción</th>
+      </tr>
+      </thead>
+      <tbody>
+     <tr></tr>
+      <!-- and so on... -->
+      </tbody>
+      </table>
+      
+      </div>
+      
+      <ul id="menu">
+         <!-- puedes hacer algo, ponerlos todos ocultos, y hacer que se cambie el elemento a visibile si calcula -->
+         <li>
+            <input type="checkbox" class='group1' name="list" id="nivel1-1"><label class='group1' id='group1' for="nivel1-1">Corriente Alterna</label>
+            <ul class="interior">
+               <li>
+                  <input type="checkbox" name="list" id="nivel2-1"><label id='output1' for="nivel2-1">Voltaje</label>
+                  <ul class="interior">
+                     <li class="result"><label id="resultadoVoltaje"></label></li>
+                  </ul>
+               </li>
+               <li>
+                  <input type="checkbox" name="list" id="nivel2-2"><label id='output2' for="nivel2-2">Intensidad</label>
+                  <ul class="interior">
+                     <li class="result"><label id="resultadoIntensidad"></label></li>
+                  </ul>
+               </li>
+               <li>
+                  <input type="checkbox" name="list" id="nivel2-3"><label id='output3' for="nivel2-3">Resistencia</label>
+                  <ul class="interior">
+                     <li class="result"><label id="resultadoResistencia"></label></li>
+                  </ul>
+               </li>
+               <li>
+                  <input type="checkbox" name="list" id="nivel2-4"><label id='output4' for="nivel2-4">Potencia</label>
+                  <ul class="interior">
+                     <li class="result"><label id="resultadoPotencia"></label></li>
+                  </ul>
+               </li>
+            </ul>
          </li>
-         <li><input type="checkbox" name="list" id="nivel2-2"><label id='output2' for="nivel2-2">Intensidad</label>
-           <ul class="interior">
-              <li class="result"><label id="resultadoIntensidad"></label></li>
-           </ul>
-         </li>
-         <li><input type="checkbox" name="list" id="nivel2-3"><label id='output3' for="nivel2-3">Resistencia</label>
-           <ul class="interior">
-              <li class="result"><label id="resultadoResistencia"></label></li>
-           </ul>
-         </li>
-         <li><input type="checkbox" name="list" id="nivel2-4"><label id='output4' for="nivel2-4">Potencia</label>
-           <ul class="interior">
-              <li class="result"><label id="resultadoPotencia"></label></li>
-           </ul>
-         </li>
+         <li><input type="checkbox" class='group2' name="list" id="nivel1-2"><label id='group2' class='group2' for="nivel1-2">Corriente Contínua</label></li>
       </ul>
-   </li>
-   <li><input type="checkbox" class='group2' name="list" id="nivel1-2"><label id='group2' class='group2' for="nivel1-2">Corriente Contínua</label></li>
-</ul>
-<!--
-  - mostrar resultados al lado de la categoria en la sangria de resultados
-  - aproximar (round_up)
-  - preguntar por decimales
-  - format_number
-  - resultados a un conversor de magnitudes aparte
--->
-</body>
-<script type="text/javascript" src="autocomplete.js"></script>
-<script type="text/javascript" src="functions.js"></script>
-<script type="text/javascript" src="table.js"></script>
+      <!--
+         - mostrar resultados al lado de la categoria en la sangria de resultados
+         - aproximar (round_up)
+         - preguntar por decimales
+         - format_number
+         - resultados a un conversor de magnitudes aparte
+         -->
+         </div>
+   </body>
+   <script type="text/javascript" src="autocomplete.js"></script>
+   <script type="text/javascript" src="functions.js"></script>
+   <script type="text/javascript" src="table.js"></script>
 </html>
